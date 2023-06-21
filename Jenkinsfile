@@ -32,7 +32,7 @@ node {
         
         // sh "docker tag ${imageName}:${imageTag} ${nexusImageName}"
         sh "docker login -u admin -p admin123 172.21.249.92:8123"
-        sh "docker push ${imageName}"
+        sh "docker push ${nexusImageName}"
         
     }
     // sh "docker tag ${imageName}:${imageTag} ${nexusUrl}/${nexusRepo}/${imageName}:${imageTag}"
