@@ -15,14 +15,36 @@ node {
     }
 
     // Uploading Docker images into Nexus Registry
-    stage('Publish to Nexus') {
+    // stage('Publish to Nexus') {
         
-        // sh "docker tag ${imageName}:latest 172.21.249.92:8123/"
+    //     sh "docker tag ${imageName}:latest 172.21.249.92:8123/"
        
-        sh "docker login -u admin -p admin123 172.21.249.92:8123"
-        sh "docker push 172.21.249.92:8123/mydockerprivaterepo/${imageTag} ${nexusImageName}"
+    //     sh "docker login -u admin -p admin123 172.21.249.92:8123"
+    //     sh "docker push 172.21.249.92:8123/mydockerprivaterepo/${imageTag} ${nexusImageName}"
         
+    // }
+
+
+    stage('Publish to Nexus') {
+        steps {
+            script {
+                def registryURL = '172.21.249.92:8123'
+                def repositoryName = 'mydockerprivaterepo'
+                
+                def tag = "${registryURL}/${repositoryName}/${imageName}:latest"
+                
+                // Tag the Docker image
+                sh "docker tag ${imageName}:latest ${tag}"
+                
+                // Log in to the Docker registry
+                sh "docker login -u admin -p admin123 ${registryURL}"
+                
+                // Push the Docker image to the Nexus repository
+                sh "docker push ${tag}"
+            }
+        }
     }
+
 
     
 }
