@@ -21,7 +21,7 @@ node {
     //     }
     // }
 
-    stage('Publish to Nexus') {
+    // stage('Publish to Nexus') {
         def nexusUrl = 'http://' + registry
         def nexusRepo = 'mydockerprivaterepo' // Replace with your Nexus repository name
         
@@ -30,21 +30,14 @@ node {
         def imageTag = 'latest'
         def nexusImageName = "${nexusUrl}/${nexusRepo}/${imageName}:${imageTag}"
         
-        sh "docker tag ${imageName}:${imageTag} ${nexusImageName}"
+        // sh "docker tag ${imageName}:${imageTag} ${nexusImageName}"
         sh "docker login ${auth} ${nexusUrl}"
         sh "docker push ${nexusImageName}"
         sh "docker logout ${nexusUrl}"
     }
+    // sh "docker tag ${imageName}:${imageTag} ${nexusUrl}/${nexusRepo}/${imageName}:${imageTag}"
+
     
-    // Building Docker images
-    // stage("Build Docker Image") {
-    //     checkout scm
-
-    //     def dockerImageTag = "vnewapp:latest" // Replace with your desired image name and tag
-    //     def dockerfilePath = "Dockerfile" // Replace with the path to your Dockerfile
-
-    //     docker.build(dockerImageTag, "-f ${dockerfilePath} .")
-    // }
 }
     
    
