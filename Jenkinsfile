@@ -31,7 +31,7 @@ node {
         def nexusImageName = "${nexusUrl}/${nexusRepo}/${imageName}:${imageTag}"
         
         // sh "docker tag ${imageName}:${imageTag} ${nexusImageName}"
-        sh "docker login ${auth} ${nexusUrl}"
+        sh "docker login -it ${auth} ${nexusUrl}"
         sh "docker push ${nexusImageName}"
         sh "docker logout ${nexusUrl}"
     }
