@@ -18,7 +18,7 @@ node {
     stage('Publish to Nexus') {
         
         // sh "docker tag ${imageName}:latest 172.21.249.92:8123/"
-        dockerImage.tag("${registry}${imageName}")
+       
         sh "docker login -u admin -p admin123 172.21.249.92:8123"
         sh "docker push 172.21.249.92:8123/mydockerprivaterepo/${imageTag} ${nexusImageName}"
         
