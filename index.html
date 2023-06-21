@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Registration Form
+        </title>
+        <style>
+            .table {
+                border: 2px solid red;
+            } 
+            #formContainer{
+                width:40%;
+                margin:auto;
+            }
+            #formC{
+                width:100%;
+            }
+            .theLabels{
+                width:30%;
+                float:left;
+            }
+            .theInputs{
+                width:60%;
+                float:right;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 align="center">Student Registration Form</h1><br><br>
+        <div id = "formContainer">
+            <form id = "formC">
+                <label class="theLabels">Name :</label>
+                        <input class="theInputs" type="text" id="name" name="name" required><br><br>
+                    <div class="column">
+                        <label class="theLabels">Phone No :</label>
+                        <input class="theInputs" type="text" id="phone" name="phone" required><br><br>
+                    </div>
+                    <div class="column">
+                        <label class="theLabels">Date Of Birth :</label>
+                        <input class="theInputs" type="date" id="dob" name="dob" required><br><br>
+                    </div>
+                    <div class = "column">
+                        <label class="theLabels">Address :</label>
+                        <textarea class="theInputs" id="address" name="address" required cols="20" rows="5"></textarea><br><br><br>
+                        <br><br><br><br>
+                    </div>
+                    <div class = "column">
+                        <label class="theLabels">Gender :</label>
+                        <input type="radio" name="gender" value="male"/> Male
+                        <input type="radio" name="gender" value="female"/> Female
+                        <br><br>
+                    </div>
+                    <label class="theLabels">City :</label>
+                    <select name="city" id="city">
+                        <option value="">--Select--</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Varanasi">Varanasi</option>
+                        <option value="Mumbai">Mumbai</option>
+                    </select><br><br>
+                    <label class="theLabels">Hobbies:</label><br>
+                    <div class="column">
+                        <input type="checkbox" id="hobby1" name="hobbies" value="Reading">
+                        <label for="hobby1">Reading</label><br>
+                        <input type="checkbox" id="hobby2" name="hobbies" value="Travelling">
+                        <label for="hobby2">Travelling</label><br>
+                        <input type="checkbox" id="hobby3" name="hobbies" value="Cooking">
+                        <label for="hobby3">Cooking</label><br><br>
+                    </div>
+                    <div align="center">
+                        <input type="submit" value="Submit">
+                        <input type="reset" value="Reset">
+                    </div>
+                </div>
+            </form><br><br>
+        </div>
+        <h2 align = "center">Student Records</h2><br>
+        <div align="center">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th>SNo</th>
+                    <th>Name</th>
+                    <th>Phone no</th>
+                    <th>Gender</th>
+                    <th>City</th>
+                    <th>Hobbies</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>John</td>
+                    <td>9876543210</td>
+                    <td>Male</td>
+                    <td>Delhi</td>
+                    <td>Reading, Writing</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Jane</td>
+                    <td>9876543211</td>
+                    <td>Female</td>
+                    <td>Mumbai</td>
+                    <td>Reading, Drawing</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Bob</td>
+                    <td>9876543212</td>
+                    <td>Male</td>
+                    <td>Chennai</td>
+                    <td>Writing, Drawing</td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
