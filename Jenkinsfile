@@ -7,7 +7,7 @@ node {
     stage('Building Image') {
     	agent any
       steps {
-      	sh 'docker build -t myapp:latest .'
+      	sh 'docker build -t iwasim07/myapp:latest .'
       }
     }
 }
