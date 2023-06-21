@@ -1,7 +1,7 @@
 node {
-    def imageName = "myphpapp"
-    def registryCredentials = "nexus"
-    def registry = "ec2-13-58-223-172.us-east-2.compute.amazonaws.com:8085/"
+    def imageName = "vnewapp"
+    def registryCredentials = "nexus101"
+    def registry = "localhost:8085/"
     def dockerImage = ''
     
     stage('Cloning code from GitHub'){
