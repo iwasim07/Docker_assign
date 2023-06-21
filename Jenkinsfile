@@ -1,7 +1,7 @@
 node {
     def imageName = "vnewapp"
     def registryCredentials = "nexus101"
-    def registry = "172.21.249.92:8123/repository/"
+    def registry = "172.21.249.92:8123/repository"
     def dockerImage = ''
 
     // Cloning the Repo
