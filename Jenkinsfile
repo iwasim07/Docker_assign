@@ -34,7 +34,7 @@ node {
         sh "docker login ${auth} ${nexusUrl}"
         sh "docker push ${nexusImageName}"
         sh "docker logout ${nexusUrl}"
-    }
+    // }
     // sh "docker tag ${imageName}:${imageTag} ${nexusUrl}/${nexusRepo}/${imageName}:${imageTag}"
 
     
