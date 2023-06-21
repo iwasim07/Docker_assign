@@ -1,8 +1,8 @@
 node {
-    def imageName = "vnewapp"
-    def registryCredentials = "nexus"
-    def registry = "ec2-13-58-223-172.us-east-2.compute.amazonaws.com:8085/"
-    def dockerImage
+    // def imageName = "vnewapp"
+    // def registryCredentials = "nexus"
+    // def registry = "ec2-13-58-223-172.us-east-2.compute.amazonaws.com:8085/"
+    // def dockerImage
     
     // stage('Clone code from GitHub') {
     //     git branch: '*/master', credentialsId: 'githubwithpassword', url: 'https://bitbucket.org/ananthkannan/phprepo/'
@@ -13,7 +13,7 @@ node {
             git(
                 branch: 'master',
                 credentialsId: 'githubwithpassword',
-                url: 'https://github.com/iwasim07/Docker_assign/tree/master'
+                url: 'https://github.com/iwasim07/Docker_assign.git'
             )
         }
     }
