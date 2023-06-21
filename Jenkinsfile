@@ -21,7 +21,7 @@ node {
     //     }
     // }
 
-    // stage('Publish to Nexus') {
+    stage('Publish to Nexus') {
         def nexusUrl = 'http://' + registry
         def nexusRepo = 'mydockerprivaterepo' // Replace with your Nexus repository name
         
@@ -34,7 +34,7 @@ node {
         sh "docker login ${auth} ${nexusUrl}"
         sh "docker push ${nexusImageName}"
         sh "docker logout ${nexusUrl}"
-    // }
+    }
     // sh "docker tag ${imageName}:${imageTag} ${nexusUrl}/${nexusRepo}/${imageName}:${imageTag}"
 
     
