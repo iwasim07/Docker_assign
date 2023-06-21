@@ -13,30 +13,30 @@ node {
             git(
                 branch: 'main',
                 credentialsId: 'githubwithpassword',
-                url: 'https://github.com/devopshint/jenkins-nexus'
+                url: 'https://github.com/iwasim07/Docker_assign/tree/master'
             )
         }
     }
 
 
     // Building Docker images
-    stage('Building Image') {
-    	agent any
-      steps {
-      	sh 'docker build -t shanem/spring-petclinic:latest .'
-      }
-    }
+    // stage('Building Image') {
+    // 	agent any
+    //   steps {
+    //   	sh 'docker build -t shanem/spring-petclinic:latest .'
+    //   }
+    // }
 
     // Uploading Docker images into Nexus Registry
-    stage('Push Docker Images to Nexus Registry'){
-        sh 'docker login -u user -p password NexusDockerRegistryUrl'
-        sh 'docker push NexusDockerRegistryUrl/Imagename}'
-        sh 'docker rmi $(docker images --filter=reference="NexusDockerRegistryUrl/ImageName*" -q)'
-        sh 'docker logout NexusDockerRegistryUrl'
-    }
+    // stage('Push Docker Images to Nexus Registry'){
+    //     sh 'docker login -u user -p password NexusDockerRegistryUrl'
+    //     sh 'docker push NexusDockerRegistryUrl/Imagename}'
+    //     sh 'docker rmi $(docker images --filter=reference="NexusDockerRegistryUrl/ImageName*" -q)'
+    //     sh 'docker logout NexusDockerRegistryUrl'
+    // }
 
     // Docker run
-    stage('Docker Run') {
-        sh "docker run -d -p 85:80 --rm --name myapp ${registry}${imageName}"
-    }
+    // stage('Docker Run') {
+    //     sh "docker run -d -p 85:80 --rm --name myapp ${registry}${imageName}"
+    // }
 }
