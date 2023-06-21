@@ -23,9 +23,9 @@ node {
 
     stage('Publish to Nexus') {
         def nexusUrl = 'http://' + registry
-        def nexusRepo = 'your-nexus-repo' // Replace with your Nexus repository name
+        def nexusRepo = 'mydockerprivaterepo' // Replace with your Nexus repository name
         
-        def auth = '-u your-nexus-username:your-nexus-password' // Replace with your Nexus credentials
+        def auth = '-u admin:admin123' // Replace with your Nexus credentials
         
         def imageTag = 'latest'
         def nexusImageName = "${nexusUrl}/${nexusRepo}/${imageName}:${imageTag}"
