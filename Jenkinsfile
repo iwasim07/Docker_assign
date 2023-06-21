@@ -16,15 +16,9 @@ node {
 
     // Uploading Docker images into Nexus Registry
     stage('Publish to Nexus') {
-        def nexusUrl = 'http://' + registry
-        def nexusRepo = 'mydockerprivaterepo' // Replace with your Nexus repository name
         
-        def auth = '-u admin:admin123' // Replace with your Nexus credentials
-        
-        def imageTag = 'latest'
-        def nexusImageName = "${nexusUrl}/${nexusRepo}/mydockerprivaterepo"
-        
-        sh "docker tag ${imageName}:${imageTag} ${nexusImageName}"
+        // sh "docker tag ${imageName}:latest 172.21.249.92:8123/"
+        dockerImage.tag("${registry}${imageName}")
         sh "docker login -u admin -p admin123 172.21.249.92:8123"
         sh "docker push 172.21.249.92:8123/mydockerprivaterepo/${imageTag} ${nexusImageName}"
         
