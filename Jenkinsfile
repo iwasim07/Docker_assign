@@ -11,7 +11,7 @@ node {
     stage("Cloning code from GitHub") {
         steps {
             git(
-                branch: 'main',
+                branch: 'master',
                 credentialsId: 'githubwithpassword',
                 url: 'https://github.com/iwasim07/Docker_assign/tree/master'
             )
