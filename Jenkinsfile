@@ -21,11 +21,11 @@ node {
     }
 
     // Uploading Docker images into Nexus Registry
-    stage('Uploading to Nexus') {
-        docker.withRegistry('http://' + registry, registryCredentials) {
-            dockerImage.push('latest')
-        }
-    }
+    // stage('Uploading to Nexus') {
+    //     docker.withRegistry('http://' + registry, registryCredentials) {
+    //         dockerImage.push('latest')
+    //     }
+    // }
 
     stage("Publish to Nexus Repository Manager") {
             steps {
