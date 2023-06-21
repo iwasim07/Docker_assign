@@ -37,7 +37,7 @@ node {
                 sh "docker tag ${imageName}:latest ${tag}"
                 
                 // Log in to the Docker registry
-                sh "docker login -u admin -p admin123 ${registryURL}"
+                sh "docker login -u admin -p admin123 172.21.249.92:8123"
                 
                 // Push the Docker image to the Nexus repository
                 sh "docker push ${tag}"
