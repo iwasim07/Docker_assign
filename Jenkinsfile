@@ -28,11 +28,11 @@ node {
         def auth = '-u admin:admin123' // Replace with your Nexus credentials
         
         def imageTag = 'latest'
-        def nexusImageName = "${nexusUrl}/${nexusRepo}/${imageName}:${imageTag}"
+        def nexusImageName = "${nexusUrl}/${nexusRepo}/mydockerprivaterepo"
         
-        // sh "docker tag ${imageName}:${imageTag} ${nexusImageName}"
+        sh "docker tag ${imageName}:${imageTag} ${nexusImageName}"
         sh "docker login -u admin -p admin123 172.21.249.92:8123"
-        sh "docker push ${nexusImageName}"
+        sh "docker push 172.21.249.92:8123/mydockerprivaterepo/${imageTag} ${nexusImageName"
         
     }
 
