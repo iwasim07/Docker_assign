@@ -1,7 +1,7 @@
 node {
     def imageName = "vnewapp"
     def registryCredentials = "admin"
-    def registry = "127.0.1.1:8123:8123/"
+    def registry = "127.0.1.1:8123/"
     // def registry = "http://localhost:8081/repository/newdockerrepoprivate/"
     def dockerImage = ''
 
@@ -17,7 +17,7 @@ node {
 
     // Uploading Docker images into Nexus Registry
     stage('Publish to Nexus') {
-        sh "docker login -u admin -p admin123 127.0.1.1:8123:8123"
+        sh "docker login -u admin -p admin123 127.0.1.1:8123"
         sh "docker tag ${imageName}:latest 172.21.249.92:8123/${imageName}:latest"
         sh "docker push 172.21.249.92:8123/${imageName}:latest"
     }
@@ -25,7 +25,7 @@ node {
     // Deploy to Kubernetes
     stage('Deploy to Kubernetes') {
         withKubeConfig([credentialsId: 'kubeconfig']) {
-            sh "docker login -u admin -p admin123 127.0.1.1:8123:8123"
+            sh "docker login -u admin -p admin123 127.0.1.1:8123"
             sh 'kubectl apply -f secret.yaml'
             sh 'kubectl apply -f deployment.yaml'
         }
