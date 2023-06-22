@@ -33,13 +33,9 @@ node {
     //     sh 'kubectl apply -f deployment.yaml --namespace new-assign' // Apply the Kubernetes manifest
     // }
 
-    stage('Deploying App to Kubernetes') {
-        steps {
-            script {
-                withKubeConfig([credentialsId: 'kubeconfig', kubeconfigFileVariable: 'KUBECONFIG']) {
-                    sh 'kubectl apply -f deployment.yaml'
-                }
-            }
+    stage('Deploy to Kubernetes') {
+        withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'https://127.0.0.1:49169']) {
+            sh 'kubectl apply -f deployment.yaml'
         }
     }
 
