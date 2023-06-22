@@ -38,7 +38,7 @@ node {
             script {
                 def kubeconfigId = "kubeconfig"
                 def configs = readFile('deployment.yaml')
-                
+
                 // Deploy the application to Kubernetes
                 kubernetesDeploy(configs: configs, kubeconfigId: kubeconfigId)
             }
