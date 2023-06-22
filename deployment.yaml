@@ -17,6 +17,8 @@ spec:
           image: 172.21.249.92:8123/mydockerprivaterepo/vnewapp:latest
           ports:
             - containerPort: 8088
+      imagePullSecrets:
+        - name: my-secret
 
 ---
 
