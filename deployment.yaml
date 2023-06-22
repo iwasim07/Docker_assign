@@ -27,7 +27,7 @@ metadata:
 spec:
   selector:
     app: my-app
-  type: nodePort
+  type: NodePort
   ports:
   - protocol: TCP
     port: 5000
