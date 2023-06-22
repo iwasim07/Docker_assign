@@ -22,14 +22,10 @@ node {
         sh "docker push 172.21.249.92:8123/${imageName}:latest"
     }
 
-    // Docker run
-    // stage('Docker Run') {
-    //     sh "docker run -d -p 87:80 --rm --name myappcontainer ${registry}${imageName}"
-    // }
-
     // Deploy to Kubernetes
     stage('Deploy to Kubernetes') {
         withKubeConfig([credentialsId: 'kubeconfig']) {
+            sh 'kubectl apply -f secret.yaml'
             sh 'kubectl apply -f deployment.yaml'
         }
     }
