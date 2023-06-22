@@ -18,11 +18,7 @@ node {
     // Uploading Docker images into Nexus Registry
     stage('Publish to Nexus') {
         
-        // sh "docker tag ${imageName}:latest 172.21.249.92:8123/"
-       
         sh "docker login -u admin -p admin123 172.21.249.92:8123"
-        // sh "docker push 172.21.249.92:8123/mydockerprivaterepo/${imageTag} ${nexusImageName}"
-
         sh "docker tag ${imageName}:latest 172.21.249.92:8123/${imageName}:latest"
         sh "docker push 172.21.249.92:8123/${imageName}:latest"
         
