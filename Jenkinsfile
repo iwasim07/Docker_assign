@@ -33,17 +33,13 @@ node {
     //     sh 'kubectl apply -f deployment.yaml --namespace new-assign' // Apply the Kubernetes manifest
     // }
 
-    stage('Deploy to Kubernetes') {
-        def kubeconfigId = "kubeconfig" // ID of the Kubernetes configuration in Jenkins
-        def namespace = "my-namespace" // Namespace where you want to deploy
-
-        // Set Kubernetes context and namespace
-        withKubeConfig([credentialsId: kubeconfigId, kubeconfigFileVariable: 'KUBECONFIG']) {
-            sh "kubectl config use-context <context-name>" // Replace <context-name> with the desired Kubernetes context name
-            sh "kubectl config set-context --current --namespace=${namespace}"
-
-            // Apply deployment and service manifests
-            sh "kubectl apply -f deployment.yaml"    
+    stage('Deploying App to Kubernetes') {
+        steps {
+            script {
+                withKubeConfig([credentialsId: 'kubeconfig', kubeconfigFileVariable: 'KUBECONFIG']) {
+                    sh 'kubectl apply -f deployment.yaml'
+                }
+            }
         }
     }
 
