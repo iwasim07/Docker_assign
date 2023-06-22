@@ -1,7 +1,8 @@
 node {
     def imageName = "vnewapp"
     def registryCredentials = "admin"
-    def registry = "http://172.21.249.92:8123/repository/newdockerrepoprivate/"
+    // def registry = "http://172.21.249.92:8123/repository/newdockerrepoprivate/"
+    def registry = "http://localhost:8081/repository/newdockerrepoprivate/"
     def dockerImage = ''
 
     // Cloning the Repo
