@@ -28,10 +28,10 @@ node {
     // }
 
     // Deploy the Kubernetes manifest to Minikube
-    stage('Deploy to Minikube') {
-        sh 'minikube start' // Start Minikube (if not already started)
-        sh 'kubectl apply -f deployment.yaml --namespace new-assign' // Apply the Kubernetes manifest
-    }
+    // stage('Deploy to Minikube') {
+    //     sh 'minikube start' // Start Minikube (if not already started)
+    //     sh 'kubectl apply -f deployment.yaml --namespace new-assign' // Apply the Kubernetes manifest
+    // }
 
     stage('Deploying App to Kubernetes') {
         def configs = readFile('deployment.yaml')
