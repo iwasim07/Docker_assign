@@ -1,8 +1,8 @@
 node {
     def imageName = "vnewapp"
     def registryCredentials = "admin"
-    // def registry = "http://172.21.249.92:8123/repository/newdockerrepoprivate/"
-    def registry = "http://localhost:8081/repository/newdockerrepoprivate/"
+    def registry = "172.21.249.92:8123/"
+    // def registry = "http://localhost:8081/repository/newdockerrepoprivate/"
     def dockerImage = ''
 
     // Cloning the Repo
@@ -22,8 +22,10 @@ node {
        
         sh "docker login -u admin -p admin123 172.21.249.92:8123"
         // sh "docker push 172.21.249.92:8123/mydockerprivaterepo/${imageTag} ${nexusImageName}"
-        withDockerRegistry(registryCredentials: registryCredentials, url: registry)
-        dockerImage.push()
+
+        docker.withRegistry('http://' + registry, registryCredentials) {
+            dockerImage.push('latest')
+        }
         
     }
 
