@@ -18,8 +18,8 @@ node {
     // Uploading Docker images into Nexus Registry
     stage('Publish to Nexus') {
         sh "docker login -u admin -p admin123 127.0.1.1:8123"
-        sh "docker tag ${imageName}:latest 172.21.249.92:8123/${imageName}:latest"
-        sh "docker push 172.21.249.92:8123/${imageName}:latest"
+        sh "docker tag ${imageName}:latest 127.0.1.1:8123/${imageName}:latest"
+        sh "docker push 127.0.1.1:8123/${imageName}:latest"
     }
 
     // Deploy to Kubernetes
