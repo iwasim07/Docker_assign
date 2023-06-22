@@ -34,8 +34,8 @@ node {
     }
 
     stage('Deploying App to Kubernetes') {
-        def configs = readFile('deploymentservice.yml')
-        def kubeconfigId = "kubernetes"
+        def configs = readFile('deployment.yaml')
+        def kubeconfigId = "kubeconfig"
         kubernetesDeploy configs: configs, kubeconfigId: kubeconfigId
     }
 
