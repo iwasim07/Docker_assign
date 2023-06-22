@@ -34,10 +34,17 @@ node {
     // }
 
     stage('Deploying App to Kubernetes') {
-        def configs = readFile('deployment.yaml')
-        def kubeconfigId = "kubeconfig"
-        kubernetesDeploy configs: configs, kubeconfigId: kubeconfigId
+        steps {
+            script {
+                def kubeconfigId = "kubeconfig"
+                def configs = readFile('deployment.yaml')
+                
+                // Deploy the application to Kubernetes
+                kubernetesDeploy(configs: configs, kubeconfigId: kubeconfigId)
+            }
+        }
     }
+
 
 
 }
