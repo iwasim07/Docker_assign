@@ -23,8 +23,14 @@ node {
     }
 
     // Docker run
-    stage('Docker Run') {
-        sh "docker run -d -p 87:80 --rm --name myappcontainer ${registry}${imageName}"
+    // stage('Docker Run') {
+    //     sh "docker run -d -p 87:80 --rm --name myappcontainer ${registry}${imageName}"
+    // }
+    
+    stage('Deploy to Minikube') {
+        // Deploy the Kubernetes manifest to Minikube
+        sh 'minikube start' // Start Minikube (if not already started)
+        sh 'kubectl apply -f deployment.yaml' // Apply the Kubernetes manifest
     }
 
 }
