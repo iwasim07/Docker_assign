@@ -19,7 +19,6 @@ spec:
             - containerPort: 8088
       imagePullSecrets:
         - name: my-secret
-      imagePullPolicy: Always
 
 
 ---
