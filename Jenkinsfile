@@ -33,15 +33,11 @@ node {
     //     sh 'kubectl apply -f deployment.yaml --namespace new-assign' // Apply the Kubernetes manifest
     // }
 
-    stage('Deploying App to Kubernetes') {
-        steps {
-            script {
-                def kubeconfigId = "kubeconfig"
-                def configs = readFile('deployment.yaml')
-
-                // Deploy the application to Kubernetes
-                kubernetesDeploy(configs: configs, kubeconfigId: kubeconfigId)
-            }
+    def kubeconfigId = "kubeconfig"
+    stage('Deploy to Kubernetes') {
+        withCredentials([string(credentialsId: kubeconfigId, variable: 'kubeconfig')]) {
+            sh "kubectl --kubeconfig=${kubeconfig} apply -f deployment.yaml --namespace=myapp-namespace"
+            sh "kubectl --kubeconfig=${kubeconfig} apply -f service.yaml --namespace=myapp-namespace"
         }
     }
 
