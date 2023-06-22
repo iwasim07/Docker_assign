@@ -24,7 +24,7 @@ node {
         // sh "docker push 172.21.249.92:8123/mydockerprivaterepo/${imageTag} ${nexusImageName}"
 
         sh "docker tag ${imageName}:latest 172.21.249.92:8123/${imageName}:latest"
-        sh "docker push 172.21.249.92:8123/repository/newdockerrepoprivate/${imageName}:latest"
+        sh "docker push 172.21.249.92:8123/${imageName}:latest"
         
     }
 
