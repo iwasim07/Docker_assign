@@ -34,7 +34,7 @@ node {
     // }
 
     stage('Deploy to Kubernetes') {
-        withKubeConfig([credentialsId: 'kubeconfig', serverUrl: 'https://127.0.0.1:49169']) {
+        withKubeConfig([credentialsId: 'kubeconfig']) {
             sh 'kubectl apply -f deployment.yaml'
         }
     }
