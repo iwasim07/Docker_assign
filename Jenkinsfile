@@ -27,12 +27,7 @@ node {
     //     sh "docker run -d -p 87:80 --rm --name myappcontainer ${registry}${imageName}"
     // }
 
-    // Deploy the Kubernetes manifest to Minikube
-    // stage('Deploy to Minikube') {
-    //     sh 'minikube start' // Start Minikube (if not already started)
-    //     sh 'kubectl apply -f deployment.yaml --namespace new-assign' // Apply the Kubernetes manifest
-    // }
-
+    // Deploy to Kubernetes
     stage('Deploy to Kubernetes') {
         withKubeConfig([credentialsId: 'kubeconfig']) {
             sh 'kubectl apply -f deployment.yaml'
