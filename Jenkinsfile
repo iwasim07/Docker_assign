@@ -25,6 +25,7 @@ node {
     // Deploy to Kubernetes
     stage('Deploy to Kubernetes') {
         withKubeConfig([credentialsId: 'kubeconfig']) {
+            sh "docker login -u admin -p admin123 172.21.249.92:8123"
             sh 'kubectl apply -f secret.yaml'
             sh 'kubectl apply -f deployment.yaml'
         }
