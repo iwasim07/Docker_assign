@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: my-app-container
-          image: 127.0.1.1:8123/mydockerprivaterepo/vnewapp:latest
+          image: 192.168.49.2:8123/mydockerprivaterepo/vnewapp:latest
           ports:
             - containerPort: 8088
       imagePullSecrets:
