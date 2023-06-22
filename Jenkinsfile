@@ -22,7 +22,8 @@ node {
        
         sh "docker login -u admin -p admin123 172.21.249.92:8123"
         // sh "docker push 172.21.249.92:8123/mydockerprivaterepo/${imageTag} ${nexusImageName}"
-        withDockerRegistry(registryCredentials: registryCredentials, url: registry)
+        withDockerRegistry(registryCredentials: registryCredentials, url: registry) {
+        dockerImage.push()
         
     }
 
