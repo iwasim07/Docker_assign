@@ -26,8 +26,8 @@ node {
     stage('Deploy to Kubernetes') {
         withKubeConfig([credentialsId: 'kubeconfig']) {
             // sh "docker login -u admin -p admin123 127.0.1.1:8123"
-            sh 'kubectl create secret docker-registry nexus-credentials --docker-server=127.0.1.1:8123 --docker-username=admin --docker-password=admin123'
-            // sh 'kubectl apply -f secret.yaml'
+            // sh 'kubectl create secret docker-registry nexus-credentials --docker-server=127.0.1.1:8123 --docker-username=admin --docker-password=admin123'
+            sh 'kubectl apply -f secret.yaml'
             sh 'kubectl apply -f deployment.yaml'
         }
     }
