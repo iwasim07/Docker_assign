@@ -18,7 +18,7 @@ spec:
           ports:
             - containerPort: 8088
       imagePullSecrets:
-        - name: my-secret
+        - name: nexus-credentials
 
 
 ---
