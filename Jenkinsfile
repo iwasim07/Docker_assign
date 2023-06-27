@@ -12,6 +12,7 @@ node {
 
     //Building docker image
     stage('Building image') {
+        sh'eval $(minikube docker-env)'
         dockerImage = docker.build(imageName)
     }
 
@@ -29,6 +30,7 @@ node {
             // sh 'kubectl create secret docker-registry nexus-credentials --docker-server=127.0.1.1:8123 --docker-username=admin --docker-password=admin123'
             sh 'kubectl apply -f secret.yaml'
             sh 'kubectl apply -f deployment.yaml'
+            sh 'kubectl get po'
         }
     }
 
