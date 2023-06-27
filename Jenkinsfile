@@ -12,7 +12,7 @@ node {
 
     //Building docker image
     stage('Building image') {
-        sh'eval $(minikube docker-env)'
+        // sh'eval $(minikube docker-env)'
         dockerImage = docker.build(imageName)
     }
 
