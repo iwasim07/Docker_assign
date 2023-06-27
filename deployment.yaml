@@ -15,7 +15,7 @@ spec:
       containers:
         - name: my-app-container
           image: 127.0.1.1:8123/vnewapp:latest
-          imagePullPolicy: Never
+          imagePullPolicy: Always
           ports:
             - containerPort: 8088
       imagePullSecrets:
